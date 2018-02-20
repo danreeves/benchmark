@@ -47,7 +47,7 @@ function runSuites(suites) {
       */
       const projectNamesWithVersions = projectNames.map(
         // eslint-disable-next-line
-        lib => `${lib} (v${require(`${lib === 'styled' ? 'styled-components' : lib}/package.json`).version})`
+        lib => `${lib} ${lib === 'classname' ? '' : `(v${require(`${lib === 'styled' ? 'styled-components' : lib}/package.json`).version})`}`
       );
 
       const table = new AsciiTable(suiteName);

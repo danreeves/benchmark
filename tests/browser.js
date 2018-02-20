@@ -11,6 +11,11 @@ import glamorous, { ThemeProvider as GlamorousThemeProvider } from 'glamorous';
 
 export default {
   'simple component': {
+    classname: () => {
+      const Component = () => <div className="red" />;
+
+      render(<Component />);
+    },
     styled: () => {
       const Component = styledSc.div`
         color: red;
@@ -35,6 +40,12 @@ export default {
   },
 
   'prop changes': {
+    classname: () => {
+      const Component = props =>
+        <div className={props.danger ? 'red' : 'black'} />;
+
+      render(<Component />);
+    },
     styled: () => {
       const Component = styledSc.div`
         color: ${props => (props.danger ? 'red' : 'black')};
